@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Taj Mahal Palace",
+    "description": "Iconic luxury hotel with stunning views.",
+    "image": "./assets/images/cards/hotel.jpg",
+    "price": 45000,
+    "rating": 5,
+    "type": "Hotel",
+    "location": "Mumbai"
+  },
+  {
+    "title": "Goa Beach Resort",
+    "description": "Relax by the sea in this beautiful resort.",
+    "image": "./assets/images/cards/resort.jpg",
+    "price": 22000,
+    "rating": 4.5,
+    "type": "Resort",
+    "location": "Goa"
+  },
+  {
+    "title": "Himalayan Retreat",
+    "description": "A peaceful escape in the mountains.",
+    "image": "./assets/images/cards/mountain.jpg",
+    "price": 18000,
+    "rating": 4.8,
+    "type": "Villa",
+    "location": "Manali"
+  },
+  {
+    "title": "The Oberoi",
+    "description": "Experience unparalleled luxury and service.",
+    "image": "https://source.unsplash.com/800x600/?luxury,hotel",
+    "price": 65000,
+    "rating": 4.9,
+    "type": "Hotel",
+    "location": "Delhi"
+  },
+  {
+    "title": "Jaipur Haveli",
+    "description": "Stay in a traditional Rajasthani mansion.",
+    "image": "./assets/images/cards/city.jpg",
+    "price": 12000,
+    "rating": 4.3,
+    "type": "Hotel",
+    "location": "Jaipur"
+  },
+  {
+    "title": "Kerala Backwaters",
+    "description": "Serene apartment overlooking the water.",
+    "image": "https://source.unsplash.com/800x600/?kerala,backwaters",
+    "price": 9000,
+    "rating": 4.2,
+    "type": "Apartment",
+    "location": "Kochi"
+  },
+  {
+    "title": "Jungle Safari Lodge",
+    "description": "Adventure awaits in the heart of the jungle.",
+    "image": "./assets/images/cards/safari.jpg",
+    "price": 30000,
+    "rating": 4.6,
+    "type": "Resort",
+    "location": "Ranthambore"
+  },
+  {
+    "title": "Bangalore Tech Loft",
+    "description": "Modern apartment for the business traveler.",
+    "image": "https://source.unsplash.com/800x600/?apartment,city",
+    "price": 15000,
+    "rating": 4.0,
+    "type": "Apartment",
+    "location": "Bangalore"
+  }
+]

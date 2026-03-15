@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Acumen</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+  <!-- Header -->
+  <header class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">Your Dashboard</h1>
+    <div class="space-x-3">
+      <!-- ✅ Home button -->
+      <a href="../index.html" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">Home</a>
+      <!-- Logout -->
+      <button id="logoutBtn" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Logout</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-8">
+    <!-- Summary Section -->
+    <section class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+      <div class="bg-white p-4 rounded-lg shadow text-center">
+        <p class="text-gray-600">Total Bookings</p>
+        <p id="totalBookings" class="text-2xl font-bold">0</p>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow text-center">
+        <p class="text-gray-600">Upcoming</p>
+        <p id="upcomingBookings" class="text-2xl font-bold">0</p>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow text-center">
+        <p class="text-gray-600">Last Booking</p>
+        <p id="lastBookingDate" class="text-2xl font-bold">—</p>
+      </div>
+    </section>
+
+    <!-- Bookings Section -->
+    <section>
+      <h2 class="text-xl font-bold mb-4">Your Bookings</h2>
+      <div id="bookingsCardsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </section>
+  </main>
+
+  <div id="modal-root"></div>
+
+  <!-- JS -->
+  <script src="../assets/js/dashboard.js"></script>
+  <script src="../assets/js/router.js"></script>
+</body>
+</html>
+
+

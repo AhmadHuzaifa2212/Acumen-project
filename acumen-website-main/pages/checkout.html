@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Acumen</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">Checkout Summary</h1>
+    <a href="../index.html" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">Home</a>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-grow container mx-auto px-4 py-8">
+    <section class="bg-white rounded-lg shadow p-6 max-w-2xl mx-auto">
+      <h2 class="text-lg font-semibold mb-4">Booking Details</h2>
+      
+      <div id="bookingSummary" class="space-y-3 text-gray-700">
+        <!-- Filled dynamically -->
+      </div>
+
+      <button id="confirmBtn" 
+        class="mt-6 w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+        Confirm Booking
+      </button>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white shadow p-4 text-center text-gray-600">
+    &copy; 2025 Acumen. All rights reserved.
+  </footer>
+
+  <script src="../assets/js/checkout.js"></script>
+</body>
+</html>

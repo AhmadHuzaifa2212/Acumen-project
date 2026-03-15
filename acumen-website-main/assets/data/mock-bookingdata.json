@@ -1,0 +1,41 @@
+[
+  {
+    "id": "BKG-1001",
+    "bookingRef": "PAR12345",
+    "destination": "Paris, France",
+    "hotel": "Hotel Lutetia",
+    "checkIn": "2025-07-12",
+    "checkOut": "2025-07-18",
+    "guests": 2,
+    "price": 1299,
+    "status": "Completed",
+    "bookingDate": "2025-06-01",
+    "notes": "Non-smoking room, high floor"
+  },
+  {
+    "id": "BKG-1002",
+    "bookingRef": "GOA67890",
+    "destination": "Goa, India",
+    "hotel": "Taj Exotica",
+    "checkIn": "2025-10-05",
+    "checkOut": "2025-10-10",
+    "guests": 4,
+    "price": 499,
+    "status": "Upcoming",
+    "bookingDate": "2025-08-20",
+    "notes": "Ocean view requested"
+  },
+  {
+    "id": "BKG-1003",
+    "bookingRef": "BKK54321",
+    "destination": "Bangkok, Thailand",
+    "hotel": "Mandarin Oriental",
+    "checkIn": "2025-09-01",
+    "checkOut": "2025-09-04",
+    "guests": 1,
+    "price": 299,
+    "status": "In Progress",
+    "bookingDate": "2025-07-15",
+    "notes": ""
+  }
+]

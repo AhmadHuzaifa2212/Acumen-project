@@ -1,0 +1,49 @@
+<!-- components/BookingForm.html -->
+<div class="bg-white rounded-lg shadow p-6">
+  <h3 class="text-xl font-bold mb-4">Book Your Trip</h3>
+
+  <form id="bookingForm" class="space-y-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <!-- From (flight) -->
+      <div>
+        <label for="fromCity" class="block text-sm font-medium text-gray-700">From</label>
+        <input id="fromCity" name="fromCity" type="text" placeholder="City or airport (e.g. Delhi)"
+               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+      </div>
+
+      <!-- To (flight) -->
+      <div>
+        <label for="toCity" class="block text-sm font-medium text-gray-700">To</label>
+        <input id="toCity" name="toCity" type="text" placeholder="City or airport (e.g. Mumbai)"
+               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label for="checkin" class="block text-sm font-medium text-gray-700">Check-in Date</label>
+        <input id="checkin" name="checkin" type="date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+      </div>
+
+      <div>
+        <label for="checkout" class="block text-sm font-medium text-gray-700">Check-out Date</label>
+        <input id="checkout" name="checkout" type="date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-end">
+      <div>
+        <label for="guests" class="block text-sm font-medium text-gray-700">Guests</label>
+        <input id="guests" name="guests" type="number" min="1" value="1"
+               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+      </div>
+
+      <div>
+        <button type="submit" id="goCheckoutMain" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+          Go to Checkout
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+

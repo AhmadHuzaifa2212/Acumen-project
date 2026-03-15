@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Acumen</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Google Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="search.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow fixed w-full z-10">
+    <div class="container mx-auto px-4 py-3 sm:py-4">
+      <!-- Mobile Layout -->
+      <div class="flex flex-col sm:hidden">
+        <!-- Top row: Logo + Menu Button -->
+        <div class="flex justify-between items-center mb-3">
+          <a href="index.html" class="flex items-center">
+            <img src="assets/images/logo (1).jpg" alt="Acumen Travels Logo" class="h-8 sm:h-10 lg:h-12 object-contain">
+          </a>
+          <button id="mobileMenuBtn" class="text-gray-600 hover:text-blue-600 p-2">
+            <span class="material-icons text-2xl">menu</span>
+          </button>
+        </div>
+        
+        <!-- Search Bar - Full width on mobile -->
+        <div id="mobileSearchContainer" class="relative w-full mb-3 flex items-center space-x-2">
+          <div class="relative flex-grow">
+            <button 
+              type="button" 
+              id="searchDropdown"
+              class="w-full px-3 py-2 pl-10 pr-8 text-sm border border-gray-300 rounded-lg bg-white text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent flex items-center justify-between interactive-search"
+            >
+              <span id="selectedOption" class="text-gray-500 text-sm">Select Destination</span>
+              <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+          </div>
+          <!-- Filter Button -->
+          <button id="openFilterBtnMobile" class="p-2 border border-gray-300 rounded-lg bg-white hover:bg-gray-100 interactive-filter">
+            <span class="material-icons text-gray-600">filter_list</span>
+          </button>
+          <!-- Dropdown List -->
+          <div 
+            id="suggestionsContainer" 
+            class="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-64 overflow-y-auto hidden"
+          >
+            <div class="sticky top-0 bg-white border-b border-gray-200 p-3">
+              <div class="relative">
+                <input 
+                  type="text" 
+                  id="searchInput"
+                  placeholder="Type to search cities..."
+                  class="w-full px-3 py-2 pl-8 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                >
+                <div class="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
+                  <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <nav id="mobileNav" class="hidden flex-col space-y-3 text-base font-medium">
+          <a href="#" class="flex items-center space-x-2 text-blue-600 border-b-2 border-blue-600 pb-2">
+            <span class="material-icons text-lg">home</span><span>Home</span>
+          </a>
+          <a href="#" class="flex items-center space-x-2 text-gray-700 border-b-2 border-transparent hover:border-purple-500 hover:text-purple-500 transition duration-300 pb-2">
+            <span class="material-icons text-lg">flight</span><span>Flight</span>
+          </a>
+          <a href="#" class="flex items-center space-x-2 text-gray-700 border-b-2 border-transparent hover:border-green-500 hover:text-green-500 transition duration-300 pb-2">
+            <span class="material-icons text-lg">hotel</span><span>Hotels</span>
+          </a>
+          <a href="#" class="flex items-center space-x-2 text-gray-700 border-b-2 border-transparent hover:border-blue-500 transition-all duration-300 ease-in-out hover:border-b-4 pb-2">
+            <span class="material-icons text-lg">assignment</span><span>Visa</span>
+          </a>
+          <a href="#" class="flex items-center space-x-2 text-gray-700 border-b-2 border-transparent hover:border-red-500 hover:text-red-500 transition duration-300 pb-2">
+            <span class="material-icons text-lg">call</span><span>Contact</span>
+          </a>
+
+          <!-- User Icon / Login Button -->
+          <div id="userMenuContainerMobile" class="relative">
+            <button id="openLoginBtnMobile" class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">
+              Login / Signup
+            </button>
+
+            <!-- Dropdown menu (hidden initially) -->
+            <div id="userDropdownMobile" class="hidden absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg">
+              <a href="index.html" class="block px-4 py-2 hover:bg-gray-100">🏠 Home</a>
+              <a href="pages/profile.html" class="block px-4 py-2 hover:bg-gray-100">👤 My Profile</a>
+              <a href="pages/dashboard.html" class="block px-4 py-2 hover:bg-gray-100">📘 My Bookings</a>
+              <a href="pages/checkout.html" class="block px-4 py-2 hover:bg-gray-100">💳 Checkout</a>
+              <hr class="my-1 border-gray-200">
+              <button id="logoutBtn"
+                      class="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100 dropdown-logout">
+                🚪 Logout
+              </button>
+
+            </div>
+          </div>
+
+        </nav>
+      </div>
+
+      <!-- Desktop Layout -->
+      <div class="hidden sm:flex justify-between items-center">
+        <a href="index.html" class="flex items-center">
+          <img src="assets/images/logo (1).jpg" alt="Acumen Travels Logo" class="h-8 sm:h-10 lg:h-12 object-contain">
+        </a>
+        
+        <!-- Search Bar -->
+        <div id="desktopSearchContainer" class="relative flex-1 max-w-md mx-4 lg:mx-8 flex items-center space-x-2">
+          <div class="relative flex-grow">
+            <button 
+              type="button" 
+              id="searchDropdownDesktop"
+              class="w-full px-4 py-2 pl-10 pr-8 text-sm border border-gray-300 rounded-lg bg-white text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent flex items-center justify-between interactive-search"
+            >
+              <span id="selectedOptionDesktop" class="text-gray-500">Select Destination</span>
+              <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+          </div>
+           <!-- Filter Button -->
+          <button id="openFilterBtnDesktop" class="p-2 border border-gray-300 rounded-lg bg-white hover:bg-gray-100 interactive-filter">
+            <span class="material-icons text-gray-600">filter_list</span>
+          </button>
+          <!-- Dropdown List -->
+          <div 
+            id="suggestionsContainerDesktop" 
+            class="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-64 overflow-y-auto hidden"
+          >
+            <div class="sticky top-0 bg-white border-b border-gray-200 p-3">
+              <div class="relative">
+                <input 
+                  type="text" 
+                  id="searchInputDesktop"
+                  placeholder="Type to search cities..."
+                  class="w-full px-3 py-2 pl-8 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                >
+                <div class="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
+                  <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="flex space-x-4 lg:space-x-6 text-base lg:text-lg font-medium items-center">
+          <a href="#" class="hidden lg:flex items-center space-x-1 text-blue-600 border-b-2 border-blue-600 hover:border-blue-600 transition duration-300">
+            <span class="material-icons">home</span><span>Home</span>
+          </a>
+          <a href="#" class="hidden lg:flex items-center space-x-1 text-gray-700 border-b-2 border-transparent hover:border-purple-500 hover:text-purple-500 transition duration-300">
+            <span class="material-icons">flight</span><span>Flight</span>
+          </a>
+          <a href="#" class="hidden lg:flex items-center space-x-1 text-gray-700 border-b-2 border-transparent hover:border-green-500 hover:text-green-500 transition duration-300">
+            <span class="material-icons">hotel</span><span>Hotels</span>
+          </a>
+          <a href="#" class="hidden lg:flex items-center space-x-1 text-gray-700 border-b-2 border-transparent hover:border-blue-500 transition-all duration-300 ease-in-out hover:border-b-4">
+            <span class="material-icons">assignment</span><span>Visa</span>
+          </a>
+          <a href="#" class="hidden lg:flex items-center space-x-1 text-gray-700 border-b-2 border-transparent hover:border-red-500 hover:text-red-500 transition duration-300">
+            <span class="material-icons">call</span><span>Contact</span>
+          </a>
+
+          <!-- User Icon / Login Button -->
+          <div id="userMenuContainerDesktop" class="relative">
+            <button id="openLoginBtnDesktop" class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">
+              Login / Signup
+            </button>
+
+            <!-- Dropdown menu (hidden initially) -->
+            <div id="userDropdownDesktop" class="hidden absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg">
+              <a href="index.html" class="block px-4 py-2 hover:bg-gray-100">🏠 Home</a>
+              <a href="pages/profile.html" class="block px-4 py-2 hover:bg-gray-100">👤 My Profile</a>
+              <a href="pages/dashboard.html" class="block px-4 py-2 hover:bg-gray-100">📘 My Bookings</a>
+              <a href="pages/checkout.html" class="block px-4 py-2 hover:bg-gray-100">💳 Checkout</a>
+              <hr class="my-1 border-gray-200">
+              <button id="logoutBtn"
+                      class="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100 dropdown-logout">
+                🚪 Logout
+              </button>
+ 
+            </div>
+          </div>
+
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Spacer for fixed navbar -->
+  <div class="h-32 sm:h-20"></div>
+
+  <!-- Hero Section -->
+  <section class="relative text-white py-16 sm:py-20 lg:py-24 bg-cover bg-center" 
+           style="background-image: url('assets/images/air1.jpeg');">
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-500/80 to-purple-600/80"></div>
+    <div class="container mx-auto px-4 text-center relative z-10">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-6 sm:mb-8 lg:mb-10">
+          Your Gateway to Seamless Travel
+        </h2>
+        <p class="text-base sm:text-lg lg:text-xl mb-8 sm:mb-10 lg:mb-12 text-blue-100">
+          Flights, Hotels, and Visas — all in one place!
+        </p>
+        <a href="#discover" 
+           class="bg-white text-blue-600 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-lg font-medium shadow-lg hover:bg-gray-200 transition text-sm sm:text-base lg:text-lg">
+          Get Started
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main id="discover" class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+    <div class="text-center mb-16 sm:mb-20 lg:mb-24">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-800 mb-6 sm:mb-8">Discover the Best with Acumen</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
+    </div>
+    <!-- Booking Form Section -->
+    <div id="booking"></div>
+
+    <script>
+      fetch("./components/BookingForm.html")
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("booking").innerHTML = html;
+
+          const script = document.createElement("script");
+          script.src = "./assets/js/booking.js";
+          document.body.appendChild(script);
+        })
+        .catch(err => {
+          console.error("Failed to load booking form:", err);
+        });
+    </script>
+
+    <!-- Filters will be loaded into the modal -->
+
+    <!-- Dynamic API Grid -->
+    <div class="mt-8">
+      <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800 mb-6 text-center">More Travel Options</h2>
+      <div id="loader" class="text-center text-blue-600 mb-6 hidden">Loading...</div>
+      <div id="apiCards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      <div id="toast" class="hidden"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white shadow-lg mt-16 sm:mt-20 lg:mt-24 py-8 sm:py-10 lg:py-12 text-center text-gray-600">
+    <div class="container mx-auto px-4">
+      <p class="text-sm sm:text-base lg:text-lg">&copy; 2025 Acumen. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Filter Modal -->
+  <div id="filterModal" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden flex items-center justify-center">
+    <div class="bg-white rounded-lg shadow-xl p-6 w-11/12 max-w-2xl">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-2xl font-bold text-gray-800">Filters</h2>
+        <button id="closeFilterModal" class="text-gray-500 hover:text-gray-800">
+          <span class="material-icons">close</span>
+        </button>
+      </div>
+      <div id="filters-container"></div>
+    </div>
+  </div>
+
+  <!-- Modal root placeholder -->
+  <div id="modal-root"></div>
+
+  <!-- JS -->
+  <script src="./assets/js/login.js"></script>
+  <script src="./assets/js/api.js"></script>
+  <script src="./assets/js/router.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      
+      if (mobileMenuBtn && mobileNav) {
+        mobileMenuBtn.addEventListener('click', function() {
+          mobileNav.classList.toggle('hidden');
+        });
+      }
+
+      const getStartedBtn = document.querySelector('a[href="#discover"]');
+      if (getStartedBtn) {
+        getStartedBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.getElementById('discover').scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+
+      // Filter Modal Logic
+      const filterModal = document.getElementById('filterModal');
+      const openFilterBtnMobile = document.getElementById('openFilterBtnMobile');
+      const openFilterBtnDesktop = document.getElementById('openFilterBtnDesktop');
+      const closeFilterModal = document.getElementById('closeFilterModal');
+      const filtersContainer = document.getElementById('filters-container');
+
+      function openModal() {
+        filterModal.classList.remove('hidden');
+      }
+
+      function closeModal() {
+        filterModal.classList.add('hidden');
+      }
+
+      openFilterBtnMobile.addEventListener('click', openModal);
+      openFilterBtnDesktop.addEventListener('click', openModal);
+      closeFilterModal.addEventListener('click', closeModal);
+      
+      // Close modal if clicking outside the content
+      filterModal.addEventListener('click', function(e) {
+        if (e.target === filterModal) {
+          closeModal();
+        }
+      });
+
+      // Load filters content into the modal
+      fetch("./components/Filters.html")
+        .then(res => res.text())
+        .then(html => {
+          filtersContainer.innerHTML = html;
+          // The filter script is loaded by api.js after data is ready
+        })
+        .catch(err => console.error("Failed to load filters:", err));
+    });
+  </script>
+</body>
+</html>

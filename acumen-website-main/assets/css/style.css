@@ -1,0 +1,190 @@
+/* Clean, Enhanced Styles for Acumen website */
+
+/* Base styles and variables */
+:root {
+  --golden-ratio: 1.618;
+  --spacing-sm: 0.618rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.618rem;
+  --spacing-xl: 2.618rem;
+}
+
+/* Ensure proper touch targets on mobile */
+@media (max-width: 640px) {
+  button, a, input, select {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  #mobileNav a {
+    padding: 12px 0;
+  }
+  
+  #suggestionsContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100vw - 32px);
+    max-width: 400px;
+    max-height: 60vh;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .grid {
+    gap: 1.5rem;
+  }
+}
+
+/* Desktop enhancements */
+@media (min-width: 1025px) {
+  .hover\:shadow-2xl:hover {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  #suggestionsContainerDesktop {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+}
+
+/* Modal styles */
+#loginModal {
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+}
+
+/* Focus states for accessibility */
+button:focus,
+input:focus,
+select:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions */
+button, a, input, select {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Z-index stacking */
+#suggestionsContainer,
+#suggestionsContainerDesktop {
+  z-index: 1000;
+}
+
+
+
+
+
+
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  h1 { font-size: 1.25rem; line-height: 1.618; }
+  h2 { font-size: 1.5rem; line-height: 1.618; }
+  h3 { font-size: 1.125rem; line-height: 1.618; }
+  p { font-size: 0.875rem; line-height: 1.618; }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  h1 { font-size: 1.5rem; line-height: 1.618; }
+  h2 { font-size: 1.875rem; line-height: 1.618; }
+  h3 { font-size: 1.25rem; line-height: 1.618; }
+  p { font-size: 1rem; line-height: 1.618; }
+}
+
+@media (min-width: 1025px) {
+  h1 { font-size: 1.875rem; line-height: 1.618; }
+  h2 { font-size: 2.25rem; line-height: 1.618; }
+  h3 { font-size: 1.5rem; line-height: 1.618; }
+  p { font-size: 1.125rem; line-height: 1.618; }
+}
+
+/* Search results styling */
+.option-item {
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.option-item:last-child {
+  border-bottom: none;
+}
+
+.option-item:hover {
+  background-color: #eff6ff;
+}
+
+/* Mobile menu button */
+#mobileMenuBtn {
+  transition: all 0.2s ease-in-out;
+}
+
+#mobileMenuBtn:hover {
+  background-color: #f3f4f6;
+  border-radius: 0.375rem;
+}
+
+/* Mobile navigation */
+#mobileNav {
+  padding: 1rem 0;
+}
+
+/* Card responsiveness */
+@media (max-width: 640px) {
+  .grid > div {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Search input mobile optimization */
+@media (max-width: 640px) {
+  #searchInput {
+    font-size: 16px;
+  }
+}
+
+/* Button responsiveness */
+@media (max-width: 640px) {
+  button {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Modal positioning on mobile */
+@media (max-width: 640px) {
+  #loginModal > div {
+    margin: 1rem;
+    width: calc(100% - 2rem);
+  }
+}
+
+/* Card hover effects */
+.group:hover .group-hover\:scale-105 {
+  transform: scale(1.05);
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Grey out past dates in calendar */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: opacity(0.7);
+}
+
+input[type="date"]:invalid {
+  border-color: #ef4444; /* red border if invalid */
+}
+
+input[type="date"]:disabled,
+input[type="date"]:read-only {
+  background-color: #f3f4f6; /* light grey */
+  cursor: not-allowed;
+}
